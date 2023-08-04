@@ -68,7 +68,7 @@ const App = () => {
         }
     }
 
-    if(moves === (size*size)){
+    if(moves === (size*size) -1){
         winner = Number.MAX_SAFE_INTEGER;
     }
     if(winner !== -1){
@@ -87,7 +87,7 @@ const App = () => {
     <>
     <div>
       <div>Players: <input type="number" onChange={changeNumPlayers} disabled={numPlayers > 0}/></div>
-      <div>Size: <input type="number" onChange={changeSize} disabled={numPlayers ===0 || size > 0}/></div>
+      <div>Size: <input type="number" onChange={changeSize} disabled={numPlayers ===0 || size > numPlayers}/></div>
       {size > 0 && numPlayers > 0 && size >= numPlayers&& <p>Moves: {moves}</p>}
       {size < numPlayers && size > 0 && <p>You have a smaller board than number of players, not everyone will get to play, try another size.</p>}
     </div>
